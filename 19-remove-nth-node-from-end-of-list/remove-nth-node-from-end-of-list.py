@@ -3,14 +3,14 @@ class Solution(object):
         dummy=ListNode(0)
         dummy.next=head
         current=head
-        length=0
-        while current!=None:
-            length+=1
-            current=current.next
-        current=dummy
-        for _ in range(length-n):
-            current=current.next
-        current.next=current.next.next
+        slow=dummy
+        fast=dummy
+        for _ in range(n+1):
+            fast=fast.next
+        while fast!=None:
+            fast=fast.next
+            slow=slow.next
+        slow.next=slow.next.next
         return dummy.next        
-
+        
   
