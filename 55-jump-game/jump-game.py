@@ -5,7 +5,10 @@ class Solution(object):
             if i>max_index:
                 return False
             max_index=max(max_index,nums[i]+i)  
-        return True      
+            if max_index>=len(nums)-1:
+                return True
+        return False        
+              
       
                 
                
