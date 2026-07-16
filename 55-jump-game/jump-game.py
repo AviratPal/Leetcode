@@ -7,7 +7,7 @@ class Solution(object):
             max_index=max(max_index,nums[i]+i)  
             if max_index>=len(nums)-1:
                 return True
-        return False        
+        return True        
               
       
                 
