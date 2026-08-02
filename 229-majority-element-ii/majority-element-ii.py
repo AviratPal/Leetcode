@@ -1,18 +1,41 @@
 class Solution(object):
     def majorityElement(self, nums):
-        frequency={}
-        ans=[]
-        n=len(nums)
+        candidate1=None
+        candidate2=None
+        count1=0
+        count2=0
         for i in nums:
-            if i in frequency:
-                frequency[i]+=1
+            if i==candidate1:
+                count1+=1
+            elif i==candidate2:
+                count2+=1
+            elif count1==0:
+                candidate1=i
+                count1=1
+            elif count2==0:
+                candidate2=i
+                count2=1
             else:
-                frequency[i]=1
-        for j in frequency:
-            if frequency[j]>n//3:
-                ans.append(j)    
-        return ans              
-        
+                count1-=1
+                count2-=1
+        count1=0
+        count2=0
+        for num in nums:
+            if num==candidate1:
+                count1+=1
+            elif num==candidate2:
+                count2+=1
+        ans=[]
+        if count1>len(nums)//3:
+            ans.append(candidate1) 
+        if count2>len(nums)//3:
+            ans.append(candidate2)
+        return ans        
+
+
+
+                        
+       
         
        
 
