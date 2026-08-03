@@ -1,12 +1,17 @@
 class Solution(object):
     def majorityElement(self, nums):
-        frequency={}
+        candidate=None
+        count=0
         for i in nums:
-            if i in frequency:
-                frequency[i]+=1
+            if count==0:
+                candidate=i
+                count=1
+            elif i==candidate:
+                count+=1
             else:
-                frequency[i]=1
-        sorted_frequency=sorted(frequency,key=frequency.get,reverse=True)
-        return sorted_frequency[0]           
+                count-=1
+        return candidate                
+        
+                  
        
         
