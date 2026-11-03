@@ -1,5 +1,5 @@
-class Solution:
-    def findMiddleIndex(self, nums: List[int]) -> int:
+class Solution(object):
+    def findMiddleIndex(self, nums):
         total_sum=sum(nums)
         left_sum=0
         for i in range(len(nums)):
@@ -8,4 +8,5 @@ class Solution:
                 return i
             left_sum+=nums[i]
         return -1        
+
         
